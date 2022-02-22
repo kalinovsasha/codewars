@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function formatDuration (seconds) {
+   console.log(seconds)
+    if(seconds==0){
+      return "now"
+    }
+    let buf=seconds; //Хранение промежуточных значений
+    let result="";
+    let space='';
+    let wordAnd="";
+    let comma="";    
+    let temp={
+        seconds:1,
+        minute:60,
+        hour:3600,
+        days:86400,
+        years:31536000
+    };
+    if (seconds/temp.years>=1) {
+            if (buf/temp.years>=2) {
+                result= Math.floor(seconds/temp.years)+wordAnd+" years";
+            } else{result= Math.floor(seconds/temp.years)+wordAnd+" year";}
+            buf=buf- Number(Math.floor(seconds/temp.years))*temp.years;
+            // Проверка на нужность запятой
+            if( buf - Number(Math.floor(buf/temp.days))*temp.days!=0){
+                space=", ";}
+            else{space=" ";}
+    }  
+    if (buf/temp.days>=1){
+        if (buf/temp.days>=2) {
+            // Првоерка на необходимость and
+            if(buf - Number(Math.floor(buf/temp.hour))*temp.hour==0 & seconds - Number(Math.floor(buf/temp.hour))*temp.hour!=0 ){wordAnd=" and"}
+                result+=wordAnd+space + Math.floor(buf/temp.days)+" days";
+            } else{result+=wordAnd+space + Math.floor(buf/temp.days)+" day";}
+            buf=buf - Number(Math.floor(buf/temp.days))*temp.days
+            if( buf - Number(Math.floor(buf/temp.hour))*temp.hour!=0){
+                space=", ";}
+            else{space=" ";}
+    }
+    if (buf/temp.hour>=1){
+        if(buf - Number(Math.floor(buf/temp.hour))*temp.hour==0 & seconds - Number(Math.floor(buf/temp.hour))*temp.hour!=0 ){wordAnd=" and"}
+        if (buf/temp.hour>=2) {
+                result+=wordAnd+space+Math.floor(buf/temp.hour)+" hours";
+            } else{result+=wordAnd+space+Math.floor(buf/temp.hour)+" hour";}
+            buf=buf - Number(Math.floor(buf/temp.hour))*temp.hour;
+            if( buf - Number(Math.floor(buf/temp.minute))*temp.minute!=0){
+                space=", ";}
+            else{space=" ";}
+            
+    }
+    //Падали тесты из-за нехватки пробела
+    if (buf/temp.minute<1 && seconds/temp.hour>=1 ){space=" "}
+    if (buf/temp.minute>=1){
+        if(buf - Number(Math.floor(buf/temp.minute))*temp.minute==0 & seconds - Number(Math.floor(buf/temp.minute))*temp.minute!=0 ){wordAnd=" and"}
+        if (buf/temp.minute>=2) {
+                result+=wordAnd+space+Math.floor(buf/temp.minute)+" minutes";
+            } else{result+=space+Math.floor(buf/temp.minute)+wordAnd+" minute";}
+            buf=buf - Number(Math.floor(buf/temp.minute))*temp.minute;
+            space=" ";
+    }
+    if (buf/temp.seconds>=1){
+        if(buf - Number(Math.floor(buf/temp.seconds))*temp.seconds==0 & seconds - Number(Math.floor(buf/temp.seconds))*temp.seconds!=0 ){wordAnd=" and"}
+        if (buf/temp.seconds>=2) {
+                result+=wordAnd+space+Math.floor(buf/temp.seconds)+" seconds";
+            } else{result+=wordAnd+space+Math.floor(buf/temp.seconds)+" second";}
+            buf=buf - Number(Math.floor(buf/temp.seconds))*temp.seconds;
+    }
+    return result
+    }
+
+
+  
+
+  console.log(formatDuration(9972023))
+
+</script>
+</html>
