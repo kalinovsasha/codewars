@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+let a = ([[[[[[[[[]]]]]]]]])
+// Рекурсивная функция
+function deepCount  (arr = [])
+  {
+// В качестве начального значения, длинна массива.
+// Если следующий элемент массива- массив, то вызываем рекурсивную функцию,если нет,то возвращаем сумму
+   return arr.reduce((sum, cur) => {
+      return sum + (Array.isArray(cur) ? deepCount(cur) : 0);
+   }, arr.length);
+};
+
+alert(deepCount(a))
+</script>
+</html>
