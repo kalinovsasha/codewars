@@ -18,6 +18,27 @@
   }
 }
 
+
+function stringify(list,buf="") {
+       if (list==null || list.data==null) {
+        return "null"
+    }
+    if(list.data!=null){
+            buf+=list.data+" -> "
+        }else{buf+="null"}
+        if (list.next==null) {
+            {return buf+="null"}
+        }
+    return stringify(list.next,buf)
+}
+
+
+
+
+
+
+
+/* Старое не оптимальное решение
 function stringify(list) {
     let buf=""; // Сохраняем проежуточные значения
     //Проверка на null
@@ -36,7 +57,7 @@ function stringify(list) {
     }
    return rec(list);
 }
-
+*/
 
 alert (stringify(new Node(1, new Node(2, new Node(3)))) )
 //alert(stringify(null))
