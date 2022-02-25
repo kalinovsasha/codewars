@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+let a=[3, 8, 3, 6, 5, 7, 9, 1]
+
+function sortByBit(buf) {
+    let buf2 //для промежуточных значений
+    let len=buf.length; 
+    // Преобразуем массив в строку не изменяя ссылку на объект в памяти
+    for(let i=0;i<len ;i++){
+        buf.push(buf[i].toString(2));
+    }
+    for(let i=0;i<len ;i++){
+        buf.shift()
+    }
+    //Сортировка пузырьком =)
+    for(let ind1=0;ind1<buf.length+1;ind1++) {
+        for(let ind=0;ind<buf.length-1;ind++) {
+            
+            if (buf[ind].split(1).length>buf[ind+1].split(1).length) {
+                buf2=buf[ind+1];
+                buf[ind+1]=buf[ind]
+                buf[ind]=buf2
+                
+            }
+            if (buf[ind].split(1).length==buf[ind+1].split(1).length){
+              if    ((Number(parseInt(buf[ind],2).toString())) > Number(parseInt(buf[ind+1],2).toString())){ // Если числа равны, то сравниваем в десятичной системе
+
+                buf2=buf[ind+1];
+                buf[ind+1]=buf[ind]
+                buf[ind]=buf2
+              }
+            } 
+        }
+    }
+    // Преобразуем в десятичную систему не создавая новый обхект
+    for(let i=0;i<len ;i++){
+        buf.push( Number(parseInt(buf[i],2).toString())        );
+    }
+    for(let i=0;i<len ;i++){
+        buf.shift()
+    }
+    return buf
+}
+
+
+
+sortByBit(a)
+console.log(a)
+
+
+
+
+//ОПтимальное решение 
+const sortByBit2 = arr => arr.sort((a, b) => a.toString(2).replace(/0/g, '') - b.toString(2).replace(/0/g, '') || a - b)
+
+/* Человечиская функция
+
+function sortByBit(arr=[]) {
+    let buf=[];
+    let buf2
+    for(k in arr){
+        buf.push(arr[k].toString(2));
+    }
+    for(let ind1=0;ind1<buf.length+1;ind1++) {
+        for(let ind=0;ind<buf.length-1;ind++) {
+            
+            if (buf[ind].split(1).length>buf[ind+1].split(1).length) {
+                buf2=buf[ind+1];
+                buf[ind+1]=buf[ind]
+                buf[ind]=buf2
+                
+            }
+            if (buf[ind].split(1).length==buf[ind+1].split(1).length){
+              if    ((Number(parseInt(buf[ind],2).toString())) > Number(parseInt(buf[ind+1],2).toString())){
+
+                buf2=buf[ind+1];
+                buf[ind+1]=buf[ind]
+                buf[ind]=buf2
+              }
+            } 
+        }
+    }
+    return buf.map((i)=>parseInt(i,2).toString())
+}
+
+*/
+/*
+for(k in arr){
+        arr.push(arr[k].toString(2));
+        arr.shift()
+    }
+
+*/
+
+
+</script>
+</html>
+
+
+
