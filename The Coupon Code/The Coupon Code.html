@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+        currentDate= new Date(currentDate)
+        expirationDate= new Date(expirationDate)
+        expirationDate.setDate(expirationDate.getDate())
+        if(enteredCode===correctCode && currentDate<=expirationDate){
+            return true
+        } else return false
+}
+</script>
+</html>
