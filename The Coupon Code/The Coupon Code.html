@@ -13,7 +13,7 @@
     function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
         currentDate= new Date(currentDate)
         expirationDate= new Date(expirationDate)
-        expirationDate.setDate(expirationDate.getDate())
+        expirationDate.setDate(expirationDate.getDate()+1)
         if(enteredCode===correctCode && currentDate<=expirationDate){
             return true
         } else return false
