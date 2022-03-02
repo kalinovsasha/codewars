@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function unluckyDays(year){
+        let date=new Date(year, 0, 0, 0, 0, 0, 0);
+        let nextYear =new Date(year+1, 0, 0, 0, 0, 0, 0);
+        let counterFriday=0;
+    while (date<nextYear) {
+        if(date.getDate()==13 && date.getDay()==5){
+            counterFriday++
+        }
+        date.setDate(date.getDate()+1)
+    }
+    return counterFriday 
+}
+alert(unluckyDays(1525))
+</script>
+</html>
