@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to hex</title>
+</head>
+<body>
+    
+</body>
+<script>
+function rgb(r, g, b){
+    r=r<=255?r:255;
+    g=g<=255?g:255;
+    b=b<=255?b:255;
+    r=r>0?r.toString(16):"00"; 
+    g=g>0?g.toString(16):"00";
+    b=b>0?b.toString(16):"00";
+    r=r.length==1?"0"+r:r;
+    g=g.length==1?"0"+g:g;
+    b=b.length==1?"0"+b:b;
+  return (""+r+g+b).toUpperCase();
+}
+alert(rgb(255,-2,3))
+</script>
+</html>
