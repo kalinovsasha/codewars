@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+let runLengthEncoding = function(str){
+    if(str==""){
+      return []
+    }
+    let result
+    result =[[1,str[0]]] 
+    let k=0
+    let counter=0;
+    for(i in str){
+        if(result[k][1]==str[i]){
+            counter++;
+            result[k][0]=counter;
+        }
+        if(result[k][1]!=str[i]){
+            counter=1
+            k++
+            result[k]=[counter,str[i]]
+        }
+    }
+    return result
+}
+
+
+
+console.log(runLengthEncoding("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbb"))
+</script>
+</html>
