@@ -17,4 +17,4 @@ Test.assertEquals(fuelPrice(5, 5.6), 27.50);
 });
 ```
 
-[1]: https://www.codewars.com/kata/57b58827d2a31c57720012e8
+[1]: https://www.codewars.com/kata/57b58827d2a31c57720012e8 
