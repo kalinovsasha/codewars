@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pair of gloves</title>
+</head>
+<body>
+    
+</body>
+<script>
+function numberOfPairs(gloves)
+{
+    let counter =0;
+    let buffer ={};
+    for(let i=0;i<gloves.length;i++){
+        if(buffer[gloves[i]]<1 | buffer[gloves[i]]==undefined |buffer[gloves[i]]==null ){
+            buffer[gloves[i]]=1
+        } else{
+            buffer[gloves[i]]++
+        }   
+    }
+    for(i in buffer){
+        counter=counter + Math.floor(buffer[i]/2);
+    }
+
+    return counter
+}
+
+
+console.log(numberOfPairs(["red","blue","red","red","red"]))
+</script>
+</html>
