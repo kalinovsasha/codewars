@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+
+ <script>
+    function positiveSum(arr) {
+        arr.push(0);
+        return  arr=arr.reduce((acum,curent)=>{
+        curent=curent>0?curent:0;
+        return acum+curent;});}
+alert(positiveSum([1,2,5,2,-5]));
+ </script>   
+</body>
+
+
+
+</html>

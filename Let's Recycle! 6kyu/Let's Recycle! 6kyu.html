@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+</body>
+<script>
+let a = [
+      {type: 'rotten apples', material: 'organic'},
+      {type: 'out of date yogurt', material: 'organic', secondMaterial: 'plastic'},
+      {type: 'wine bottle', material: 'glass', secondMaterial: 'paper'},
+      {type: 'amazon box', material: 'paper'},
+      {type: 'beer bottle', material: 'glass', secondMaterial: 'paper'}
+    ];
+
+
+
+function recycle(array) {
+    let paper=[];
+    let glass=[];
+    let organic=[];
+    let plastic=[];
+    for(i in array){
+        switch (array[i].material) {
+            case "paper":
+                paper.push(array[i].type)
+                break;
+            case "glass":
+                glass.push(array[i].type)
+                break;
+            case "organic":
+                organic.push(array[i].type)
+                break;
+            case "plastic":
+                plastic.push(array[i].type)
+                break;
+        }
+        if(array[i].secondMaterial!=undefined){
+            switch (array[i].secondMaterial) {
+            case "paper":
+                paper.push(array[i].type)
+                break;
+            case "glass":
+                glass.push(array[i].type)
+                break;
+            case "organic":
+                organic.push(array[i].type)
+                break;
+            case "plastic":
+                plastic.push(array[i].type)
+                break;
+            }  
+        }
+    }
+  return [paper,glass,organic,plastic]
+}
+
+console.log(recycle(a))
+
+
+
+</script>
+</html>
