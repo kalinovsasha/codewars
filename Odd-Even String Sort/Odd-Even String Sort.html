@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Odd-Even String Sort 7kyu</h1>
+  <a href="https://www.codewars.com/kata/580755730b5a77650500010c/train/javascript">Codewars</a>
+</body>
+<script>
+  let testStr="CodeWars";
+function sortMyString(str) {
+    let even=[]
+    let odd=[]
+    for(let i=0;i<str.length;i++){
+      if(i%2===0){
+        even.push(str[i])
+      } else{
+        odd.push(str[i])
+      }
+    }
+    return even.join("")+ " "+ odd.join("");
+}
+</script>
+</html>

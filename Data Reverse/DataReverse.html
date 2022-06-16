@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Reverse</title>
+</head>
+<body>
+  <a href="https://www.codewars.com/kata/569d488d61b812a0f7000015/train/javascript">Data Reverse 6kyu</a>
+</body>
+<script>
+  function dataReverse(data) {
+    const len=data.length/8;
+    let bufArr=[];
+    let bufStr="";
+    let counter=0;
+    while(counter<data.length-7){  
+      bufStr=data[counter].toString()+data[counter+1].toString()+data[counter+2].toString()+data[counter+3].toString()+data[counter+4].toString()+data[counter+5].toString()+data[counter+6].toString()+data[counter+7].toString();
+      bufArr.push(bufStr)
+      counter+=8;
+    }
+    bufArr.reverse();
+    bufArr=bufArr.join('').split('')
+    for(let i=0;i<bufArr.length;i++){
+      bufArr[i]=Number(bufArr[i]);
+    }
+    return bufArr
+}
+
+console.log(dataReverse([1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0]))
+</script>
+</html>

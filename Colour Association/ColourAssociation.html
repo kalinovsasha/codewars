@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="https://www.codewars.com/kata/56d6b7e43e8186c228000637/train/javascript"><h1>Colour Association 7kuy</h1></a>
+  <script>
+  test=[["white", "goodness"], ["blue", "tranquility"]];
+  function colourAssociation(array){
+    result=[];
+    array.forEach(element => {
+      let buf={};
+      buf[element[0]]=element[1]
+      result.push(buf)
+    });
+    console.log(result)
+  }
+  colourAssociation(test)
+  </script>
+</body>
+</html>

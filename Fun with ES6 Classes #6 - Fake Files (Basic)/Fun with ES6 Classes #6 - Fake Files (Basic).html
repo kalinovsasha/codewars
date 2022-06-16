@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body></body>
+<script>
+class File {
+    constructor(fullName, contents){
+        const fullNameArray = fullName.split('.');
+  
+        this._fullName = fullName;
+        this._contents = contents;
+        this._extension = fullNameArray.pop();
+        this._filename = fullNameArray.join('.');
+        
+        this._currentLineToRead = 0;
+        this._currentCharToRead = 0;
+    }
+    get fullName(){
+        return this._fullName;
+    }
+   
+    get filename(){
+        return this._filename;
+    }
+   
+    get extension(){
+        return this._extension;
+    }
+    
+    getContents(){
+        return this._contents;
+    }
+    write(str){
+         this._contents = `${this._contents.length ? this._contents+'\n':''}${str}`;
+    }
+    gets(){
+        const res = this._contents.split('\n')[this._currentLineToRead];
+        this._currentLineToRead++;
+        return res;
+    }
+    getc(){
+        const res = this._contents[this._currentCharToRead];
+        this._currentCharToRead++;
+        return res;
+    }
+}
+
+let a = new File("xer.txt","An example file\nHello World\nThis is an example file provided to you by the Kata author\nThis example file is used as an example test case.");
+a.filename="xe"
+a.write("xepa")
+a.gets()
+a.gets()
+console.log(a.gets())
+
+
+
+</script>
+</html>

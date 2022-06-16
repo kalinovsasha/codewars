@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  let a=['a','y','!']
+  Array.prototype.reduce = function(process, initial) {
+    let result;
+    this.forEach((i)=>{
+      initial=process(initial,i);
+    })
+  console.log(initial)
+}
+
+//['a','y','!'].reduce(function(x,y){return x+y}, 'y');
+
+function generateName()
+{
+  let template='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("");
+  result=[];
+  for(i=0;i<6;i++){
+    result.push(template[Math.floor(Math.random()*template.length)])
+  }
+  alert (result.join(""))
+  return result.join("")
+  
+}
+
+generateName();
+
+
+
+
+</script>
+</html>
