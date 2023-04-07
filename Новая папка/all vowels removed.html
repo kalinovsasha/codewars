@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        function disemvowel(str) {
+            let mask= ["A","E", "I", "O", "U", "Y","a","e","i","o","u","y"];
+            let masStr=str.split("");
+            let newMas=[];
+                for (let i of masStr) {
+                    if (mask.indexOf(i)==-1) {
+                     newMas.push(i);
+                    }
+                }
+                masStr=newMas.join("");
+            return masStr;
+            }
+
+        alert(disemvowel("This website is for losers LOL!"));
+    </script>
+</html>
